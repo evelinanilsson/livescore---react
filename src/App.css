@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: hsl(var(--ac));
+}
+.App {
+  max-width: 100%;
+  margin: auto;
+  min-height: 100vh;
+
+}
+.content {
+  min-width: 50%;
+  margin: auto;
+}
+
+.navbar {
+ 
+  min-width: 50%;
+  margin: auto;
+}
+
+.fixture-table {
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.live-fixture {
+  border-bottom: solid hsl(var(--nf));
+  gap: 10px;
+}
+
+.fixture {
+  border-bottom: solid hsl(var(--nf));
+  display: flex;
+  
+}
+.center {
+ text-align: center;
+}
+
+.row {
+  display: flex;
+  
+}
+.text-color-green {
+  color: hsl(var(--a));
+}
+
