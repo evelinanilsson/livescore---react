@@ -2,10 +2,17 @@
 import { fetchLeagueFixtures } from '../api/fetchData';
 import { useEffect, useState } from 'react';
 import { fixture } from '../api/dummy-data-fixture';
+import { Link, useNavigate } from 'react-router-dom';
+import MatchList from '../components/matchList';
+import LeagueIntro from '../components/leagueIntro';
 
 
 export function ComingFixtures () {
 
+    // const navigate = useNavigate();
+    // const onClick = () => {
+    //     navigate(`match/${item.fixture.id}`)
+    // }
 
     // const [fixture, setFixtures] = useState([])
 
@@ -17,51 +24,51 @@ export function ComingFixtures () {
     // useEffect(() => {
     //   fetchData();
     // }, []);
+
+    function ChooseLeague() {
     
+        const [league, setLeague] = useState("39")
+        
+        const leagues = [
+            {
+            title: "Premier League",
+            id: "39"
+        }, 
+        {
+            title: "Serie A",
+            id: "135"
+        },
+        {
+            title: "La Liga",
+            id: "140"
+        }
+        ]
+        console.log(leagues)
+        console.log(league)
+            return (
+                <div>
+                    <p>Choose league</p>
+                    <select 
+                    onChange={(e) => setLeague(e.target.id)}
+                    placeholder ="Choose league">
+                        <option value="" disabled selected>Choose League</option>
+                        {leagues.map((data) => (
+                            <option value={data.id}>{data.title}</option>
+                        ))}
+                    </select>
+                </div>
+            )
+        }
     return (
         <div className="content bg-base-100">
+            <ChooseLeague />
         {fixture.length === 0 ? (
             <p>loading</p>
         ) : (
-            <div>Coming Fixtures
-            <div className="intro row bg-base-300">
-            <img src={fixture.response[0].league.logo}></img>
-            <span>
-                <h1 className="text-4xl font-semibold">{fixture.response[0].league.name}</h1>
-                <span className="row">
-                    <p>{fixture.response[0].league.country}</p>
-                    <img src={fixture.response[0].league.flag}height={25} width={25}></img>
-                </span>
-            </span>
-            </div>
-        
-        <div className="coming-fixtures justify-items-center">
-            {fixture.response.map((item, i) => (
-                <div className="fixture gap-x-2.5 " key={i}>
-                    <div className="date-time">
-                        <p>{item.fixture.date.slice(5,10)}</p>
-                        <p>{item.fixture.date.slice(11,16)}</p>
-                    </div>
-
-                <div className="teams mx-8">
-                    <span className="row">
-                        <img src={item.teams.home.logo} alt={item.teams.home.logo} height={25} width={25}></img>
-                        <p>{item.teams.home.name}</p>
-                    </span>
-                    <span className="row">
-                        <img src={item.teams.away.logo} alt={item.teams.away.logo} height={25} width={25}></img>
-                        <p>{item.teams.away.name}</p>
-                    </span>
-                </div>
-                <div className='mr-px'>
-                    <p>{item.fixture.venue.name}</p>
-                    <p>{item.fixture.venue.city}</p>
-                </div>
-
-                </div>
-            ))}
-        </div>
-        </div>
+            <>
+                <LeagueIntro fixture={fixture} title="Coming Fixtures"/>
+                <MatchList fixture={fixture} />
+            </>
         )}
             
 

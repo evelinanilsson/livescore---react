@@ -1,4 +1,4 @@
-export const table = {
+export const standings = {
     "get": "standings",
     "parameters": {
         "league": "39",

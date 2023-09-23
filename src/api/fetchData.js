@@ -62,7 +62,7 @@ export const fetchLeagueFixtures = async (currentDate, comingDate) => {
 // }
 
 export const fetchLeageTable = async () => {
-    const resultTable =
+    const result =
     fetch("https://v3.football.api-sports.io/standings?league=39&season=2023", {
 	"method": "GET",
 	"headers": {
@@ -76,11 +76,11 @@ export const fetchLeageTable = async () => {
     })
     .catch((err) => console.error(err));
 
-    return resultTable;
+    return result;
 }
 
-export const fetchResults = async () => {
-    const result = fetch("https://v3.football.api-sports.io/fixtures?from=2023-09-16&to=2023-09-18&season=2023&league=39", {
+export const fetchResults = async (league) => {
+    const result = fetch("https://v3.football.api-sports.io/fixtures?from=2023-09-16&to=2023-09-18&season=2023&league=" + league, {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "v3.football.api-sports.io",

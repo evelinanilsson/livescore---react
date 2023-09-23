@@ -1,37 +1,38 @@
-// import { fetchLeageTable } from "../api/fetchData";
-import { useEffect } from "react";
-import { table } from "../api/dummy-data-table";
+
+import { useEffect, useState } from "react";
+import { standings } from "../api/dummy-data-table";
+import { fetchLeageTable } from "../api/fetchData";
 
 export function CurrentTable () {
 
-    console.log(table)
-    const standing = table.response;
-    console.log(standing)
-    
-    console.log(standing[0])
-    const standings = standing[0].league.standings[0]
-    console.log(standings)
-    
-    const league = standing[0].league
-    console.log(league)
-    //   const fetchData = async () => {
-    //   const table = await fetchLeageTable();
-    //   console.log(table)
+    // const [standings, setStandings] = useState([]);
+
+    // const fetchData = async () => {
+    //     const result = await fetchLeageTable();
+    //     setStandings(result)
     // }
 
     // useEffect(() => {
-    //   fetchData();
-    // });
+    //     fetchData();
+    // }, []);
+
+   
+    console.log(standings)
+
     return (
         <div className="bg-base-100 content flex flex-col">
-            <div>League Table</div>
+            {standings.length === 0 ? (
+                <p>Loading...</p>
+            ) : (
+                
+                <div>League Table
              <div className="intro row bg-base-300">
-            <img src={league.logo}></img>
+            <img src={standings.response[0].league.logo}></img>
             <span>
-                <h1 className="text-4xl font-semibold">{league.name}</h1>
+                <h1 className="text-4xl font-semibold">{standings.response[0].league.name}</h1>
                 <span className="row">
-                    <p>{league.country}</p>
-                    <img src={league.flag}height={25} width={25}></img>
+                    <p>{standings.response[0].league.country}</p>
+                    <img src={standings.response[0].league.flag}height={25} width={25}></img>
                 </span>
             </span>
             </div>
@@ -51,7 +52,7 @@ export function CurrentTable () {
                     </tr>
                 </thead>
                 <tbody>
-                {standings.map((item, i) => {
+                {standings.response[0].league.standings[0].map((item, i) => {
                     return (
                         <tr key={i}>
                             <td>{item.rank}</td>
@@ -69,6 +70,9 @@ export function CurrentTable () {
                 </tbody>
             </table>
             </div>
+            </div>
+            )}
+            
             
 
         </div>

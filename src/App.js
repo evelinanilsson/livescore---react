@@ -7,54 +7,52 @@ import { LiveScores } from './views/LiveScores';
 import { ComingFixtures } from './views/Fixtures';
 import { LatestResults } from './views/LatestResults';
 import { CurrentTable } from './views/Table';
-
-
+import { MatchDetails } from './views/MatchDetails';
+import { data } from './api/dummy-data';
 
 
 function App() {
 
-  const [currentDate, setCurrentDate] = useState()
-  const [previousDate, setPreviousDate] = useState()
-  const [comingDate, setComingDate] = useState()
+//   const [currentDate, setCurrentDate] = useState(GetTodaysDate())
+//   const [previousDate, setPreviousDate] = useState()
+//   const [comingDate, setComingDate] = useState()
   
-  function GetTodaysDate () {
+//   function GetTodaysDate () {
     
   
-    const today = new Date();
-    const todayString = today.toISOString().slice(0, 10);
-    console.log(todayString)
+//     const today = new Date();
+//     const todayString = today.toISOString().slice(0, 10);
+//     console.log(todayString)
   
-    setCurrentDate(todayString)
-    return currentDate;
-  }
+//     setCurrentDate(todayString)
+//     return currentDate;
+//   }
   
-  function GetForwardDate () {
+//   function GetForwardDate () {
     
   
-    const date = new Date();
-    date.setDate(date.getDate() + 7);
-    const dateString = date.toISOString().slice(0, 10);
-    console.log(dateString)
+//     const date = new Date();
+//     date.setDate(date.getDate() + 7);
+//     const dateString = date.toISOString().slice(0, 10);
+//     console.log(dateString)
   
-    setPreviousDate(dateString)
-    return previousDate;
-  }
+//     setPreviousDate(dateString)
+//     return previousDate;
+//   }
   
-  function GetBackwardsDate () {
+//   function GetBackwardsDate () {
   
     
-    const before = new Date();
-    before.setDate(before.getDate() - 7);
-    const beforeString = before.toISOString().slice(0, 10);
-    console.log(beforeString)
+//     const before = new Date();
+//     before.setDate(before.getDate() - 7);
+//     const beforeString = before.toISOString().slice(0, 10);
+//     console.log(beforeString)
   
-    setComingDate(beforeString)
-    return comingDate;
-  }
+//     setComingDate(beforeString)
+//     return comingDate;
+//   }
 
-
-
-console.log(currentDate)
+// console.log(currentDate)
 
   return (
     <div className="App w-full md:w-[700px] lg:w-[800px] m-auto">
@@ -71,6 +69,7 @@ console.log(currentDate)
           <Route element={<ComingFixtures />} path="fixtures"/>
           <Route element={<LatestResults /> } path="results" />
           <Route element={<CurrentTable /> } path="table"/>
+          <Route element={<MatchDetails />} path="match/:matchID"/>
         </Routes>
 
         <footer className="footer p-10 bg-neutral text-neutral-content">
