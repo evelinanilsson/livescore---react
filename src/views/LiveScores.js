@@ -21,7 +21,8 @@ import MatchList from '../components/matchList';
   //   }, []);
 
     return (
-      <div className="content bg-base-100">
+      <div className="content bg-base-100 p-1.5">
+        <h1 className="font-semibold">Live Matches</h1>
       {data.length === 0 ? (
         <p>Loading...</p>
       ) : (
