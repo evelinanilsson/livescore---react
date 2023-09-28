@@ -1,31 +1,44 @@
 
 import { useEffect, useState } from "react";
 import { standings } from "../api/dummy-data-table";
-import { fetchLeageTable } from "../api/fetchData";
-import { leagues } from "../api/leaguesObject";
-import ChooseLeague from "../components/chooseLeague";
+// import { fetchLeageTable } from "../api/fetchData";
+import { leagues } from "../components/leaguesObject";
+
 import LeagueIntro from "../components/leagueIntro";
 
 export function CurrentTable () {
 
     // const [standings, setStandings] = useState([]);
+    // const [league, setLeague] = useState(leagues[0].id)
 
     // const fetchData = async () => {
-    //     const result = await fetchLeageTable();
+    //     const result = await fetchLeageTable(league);
     //     setStandings(result)
     // }
 
     // useEffect(() => {
     //     fetchData();
-    // }, []);
+    // }, [league]);
 
    
-    console.log(standings)
+    // function changeLeague(e) {
+    //     setLeague(e.target.value)
+    //    }
 
     return (
         <div className="bg-base-100  p-1.5">
             <h1 className="font-semibold">League Table</h1>
-            <ChooseLeague leagues={leagues}/>
+            <div>
+                <select 
+                    // onChange={changeLeague}
+                    className="select select-bordered w-full max-w-xs">
+                    <option value="" disabled selected>Choose League</option>
+                    {leagues.map((input) => (
+                        <option value={input.id}>{input.title}</option>
+                    ))}
+                </select>
+            </div>
+
             {standings.length === 0 ? (
                 <p>Loading...</p>
             ) : (

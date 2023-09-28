@@ -1,8 +1,6 @@
 import { useState } from "react";
 
 
-
-
 export const fetchLiveFixtures = async () => {
     const options = {
 	    method: 'GET',
@@ -24,10 +22,7 @@ export const fetchLiveFixtures = async () => {
     return result;
 }
 
-export const fetchLeagueFixtures = async (currentDate, comingDate) => {
-
-    console.log(currentDate)
-    console.log(comingDate)
+export const fetchLeagueFixtures = async (currentDate, comingDate, league) => {
 
     const options = {
 	    method: 'GET',
@@ -37,7 +32,7 @@ export const fetchLeagueFixtures = async (currentDate, comingDate) => {
 	    },
     };
 
-    const result = fetch(`https://v3.football.api-sports.io/fixtures?from=${currentDate}&to=${comingDate}&season=2023&league=39`,
+    const result = fetch(`https://v3.football.api-sports.io/fixtures?from=${currentDate}&to=${comingDate}&season=2023&league=${league}`,
     options
     )
     .then((response) => response.json())
@@ -50,9 +45,9 @@ export const fetchLeagueFixtures = async (currentDate, comingDate) => {
 }
 
 
-export const fetchLeageTable = async () => {
+export const fetchLeageTable = async (league) => {
     const result =
-    fetch("https://v3.football.api-sports.io/standings?league=39&season=2023", {
+    fetch(`https://v3.football.api-sports.io/standings?league=${league}&season=2023`, {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "v3.football.api-sports.io",
@@ -83,5 +78,5 @@ export const fetchResults = async (currentDate, previousDate, league) => {
     })
     .catch((err) => console.error(err));
 
-return result;
+    return result;
 }

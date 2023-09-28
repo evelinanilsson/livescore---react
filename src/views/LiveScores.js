@@ -3,8 +3,6 @@ import { useEffect, useState } from 'react';
 import { data } from '../api/dummy-data';
 import { Link } from 'react-router-dom';
 import MatchList from '../components/matchList';
-
-
 // import { fetchLiveFixtures } from '../api/fetchData';
 
  export function LiveScores () {
