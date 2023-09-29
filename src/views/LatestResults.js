@@ -29,7 +29,7 @@ export function LatestResults ({currentDate, previousDate}) {
     //  }
    
     return (
-      <div className="content bg-base-100 justify-items-center p-1.5"> 
+      <div className="content bg-base-100"> 
         <h1 className="font-semibold">Latest Results</h1>
         <div>
           <select 

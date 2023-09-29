@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { standings } from "../api/dummy-data-table";
 // import { fetchLeageTable } from "../api/fetchData";
 import { leagues } from "../components/leaguesObject";
-
 import LeagueIntro from "../components/leagueIntro";
 
 export function CurrentTable () {
@@ -26,7 +25,7 @@ export function CurrentTable () {
     //    }
 
     return (
-        <div className="bg-base-100  p-1.5">
+        <div className="bg-base-100">
             <h1 className="font-semibold">League Table</h1>
             <div>
                 <select 
@@ -46,17 +45,17 @@ export function CurrentTable () {
             <div>
                 <LeagueIntro fixture={standings} />
                 <div className="m-auto p-px ">
-                <table className="table-md border-spacing-x-1 m-auto ">
+                <table className="table-md ">
                     <thead>
-                        <tr>
+                        <tr className="bg-neutral text-white">
                             <th>#</th>
                             <th>Logo</th>
                             <th>Team</th>
-                            <th>Wins</th>
-                            <th>Loss</th>
-                            <th>Draws</th>
+                            <th className="hidden md:table-cell">Wins</th>
+                            <th className="hidden md:table-cell">Loss</th>
+                            <th className="hidden md:table-cell">Draws</th>
                             <th>Games</th>
-                            <th>GoalsDiff</th>
+                            <th className="hidden md:table-cell">GoalsDiff</th>
                             <th>Points</th>
                         </tr>
                     </thead>
@@ -67,11 +66,11 @@ export function CurrentTable () {
                                 <td classname="px-1">{item.rank}</td>
                                 <td><img src={item.team.logo} alt={item.team.logo} height={25} width={25} /></td>
                                 <td>{item.team.name}</td>
-                                <td>{item.all.win}</td>
-                                <td>{item.all.lose}</td>
-                                <td>{item.all.draw}</td>
-                                <td>{item.all.played}</td>
-                                <td>{item.goalsDiff}</td>
+                                <td className="hidden md:table-cell">{item.all.win}</td>
+                                <td className="hidden md:table-cell">{item.all.lose}</td>
+                                <td className="hidden md:table-cell">{item.all.draw}</td>
+                                <td >{item.all.played}</td>
+                                <td className="hidden md:table-cell">{item.goalsDiff}</td>
                                 <td>{item.points}</td>
                             </tr>
                         );

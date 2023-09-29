@@ -1,6 +1,3 @@
-import { useState } from "react";
-
-
 export const fetchLiveFixtures = async () => {
     const options = {
 	    method: 'GET',

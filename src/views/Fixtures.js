@@ -27,13 +27,13 @@ export function ComingFixtures ({currentDate, comingDate}) {
     
        
     return (
-        <div className="content bg-base-100 p-1.5">
+        <div className="content bg-base-100 m-1.5">
             <h1 className="font-semibold ">Coming Fixtures</h1>
             
             <div className="">
             <select 
                 // onChange={changeLeague}
-                className="select select-bordered w-full max-w-xs p-px  ">
+                className="select select-bordered w-full max-w-xs">
                 <option value="" disabled selected>Choose League</option>
                 {leagues.map((input) => (
                     <option value={input.id}>{input.title}</option>

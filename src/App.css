@@ -16,37 +16,13 @@ body {
   margin: auto;
 }
 
-.navbar {
- 
-  min-width: 50%;
-  margin: auto;
+@media screen and (max-width: 640px){
+  .content {
+    min-width: 100%
+  }
 }
-
-.fixture-table {
-  display: flex;
-  flex-direction: column;
- 
-}
-
-.live-fixture {
-  border-bottom: solid hsl(var(--nf));
-  gap: 10px;
-}
-
-.fixture {
-  border-bottom: solid hsl(var(--nf));
-  display: flex;
-  
-}
-.center {
- text-align: center;
-}
-
 .row {
   display: flex;
   
-}
-.text-color-green {
-  color: hsl(var(--a));
 }
 
