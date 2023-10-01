@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from "react";
 import { standings } from "../api/dummy-data-table";
 // import { fetchLeageTable } from "../api/fetchData";
@@ -45,7 +44,7 @@ export function CurrentTable () {
             <div>
                 <LeagueIntro fixture={standings} />
                 <div className="m-auto p-px ">
-                <table className="table-md ">
+                <table className="table-md m-auto">
                     <thead>
                         <tr className="bg-neutral text-white">
                             <th>#</th>

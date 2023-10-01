@@ -1,4 +1,3 @@
-
 // import { fetchLeagueFixtures } from '../api/fetchData';
 import { useEffect, useState } from 'react';
 import { fixture } from '../api/dummy-data-fixture';
@@ -24,8 +23,7 @@ export function ComingFixtures ({currentDate, comingDate}) {
     // function changeLeague(e) {
     //   setLeague(e.target.value)
     // }
-    
-       
+      
     return (
         <div className="content bg-base-100 m-1.5">
             <h1 className="font-semibold ">Coming Fixtures</h1>
@@ -48,8 +46,6 @@ export function ComingFixtures ({currentDate, comingDate}) {
                 <MatchList fixture={fixture} />
             </>
         )}
-            
-
         </div>
     )
 }

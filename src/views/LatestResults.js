@@ -7,7 +7,6 @@ import LeagueIntro from "../components/leagueIntro";
 import { leagues } from "../components/leaguesObject";
 
 
-
 export function LatestResults ({currentDate, previousDate}) {
 
     // const [league, setLeague] = useState(leagues[0].id)
@@ -32,7 +31,7 @@ export function LatestResults ({currentDate, previousDate}) {
       <div className="content bg-base-100"> 
         <h1 className="font-semibold">Latest Results</h1>
         <div>
-          <select 
+          <select  
               // onChange={changeLeague}
               className="select select-bordered w-full max-w-xs">
               <option value="" disabled selected>Choose League</option>
