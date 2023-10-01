@@ -44,12 +44,10 @@ export function LatestResults ({currentDate, previousDate}) {
             <p>Loading...</p>
         ) : (
           <>
-          <LeagueIntro fixture={results} />
-          <MatchList fixture={results}  />
+            <LeagueIntro fixture={results} />
+            <MatchList fixture={results}  />
           </>
         )}
-        
-
-  </div>
+      </div>
     )
   }

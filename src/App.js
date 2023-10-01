@@ -1,5 +1,4 @@
 import './App.css';
-
 import { useEffect, useState} from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { LiveScores } from './views/LiveScores';
@@ -10,6 +9,7 @@ import { data } from './api/dummy-data';
 import { results } from './api/dummy-data-results';
 import Navbar from './components/navbar';
 import Footer from './components/Footer';
+
 
 function GetTodaysDate () {
   const today = new Date();

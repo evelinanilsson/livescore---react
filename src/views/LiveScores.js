@@ -20,13 +20,11 @@ export function LiveScores () {
     return (
       <div className="content bg-base-100">
         <h1 className="font-semibold mb-2">Live Matches</h1>
-      {data.length === 0 ? (
-        <p>Loading...</p>
-      ) : (
-       
-        <MatchList fixture={data} title="Live Fixtures"/>
-         
-      )}
-        </div>
+        {data.length === 0 ? (
+          <p>Loading...</p>
+        ) : (
+          <MatchList fixture={data} title="Live Fixtures"/> 
+        )}
+      </div>
     )
 }
