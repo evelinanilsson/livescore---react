@@ -1,4 +1,4 @@
-// import { fetchLeagueFixtures } from '../api/fetchData';
+import { fetchLeagueFixtures } from '../api/fetchData';
 import { useEffect, useState } from 'react';
 import { fixture } from '../api/dummy-data-fixture';
 import MatchList from '../components/matchList';
@@ -8,21 +8,20 @@ import { leagues } from "../components/leaguesObject";
 
 export function ComingFixtures ({currentDate, comingDate}) {
 
-    // const [league, setLeague] = useState(leagues[0].id)
-    // const [fixture, setFixtures] = useState([])
+    const [league, setLeague] = useState(leagues[0].id)
+    const [fixture, setFixtures] = useState([])
 
-    // const fetchData = async () => {
-    //   const result = await fetchLeagueFixtures(currentDate, comingDate, league);
-    //   setFixtures(result)
-    // }
+    const fetchData = () => {
+      fetchLeagueFixtures(currentDate, comingDate, league).then((result) => setFixtures(result));
+    }
     
-    // useEffect(() => {
-    //   fetchData();
-    // }, [league]);
+    useEffect(() => {
+      fetchData();
+    }, [league]);
 
-    // function changeLeague(e) {
-    //   setLeague(e.target.value)
-    // }
+    function changeLeague(e) {
+      setLeague(e.target.value)
+    }
       
     return (
         <div className="content bg-base-100 m-1.5">
@@ -30,11 +29,11 @@ export function ComingFixtures ({currentDate, comingDate}) {
             
             <div className="">
                 <select 
-                    // onChange={changeLeague}
+                    onChange={changeLeague}
                     className="select select-bordered w-full max-w-xs">
                     <option value="" disabled selected>Choose League</option>
                     {leagues.map((input) => (
-                        <option value={input.id}>{input.title}</option>
+                        <option key={input.id} value={input.id}>{input.title}</option>
                     ))}
                 </select>
             </div>

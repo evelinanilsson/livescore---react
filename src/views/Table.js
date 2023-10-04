@@ -1,38 +1,40 @@
 import { useEffect, useState } from "react";
 import { standings } from "../api/dummy-data-table";
-// import { fetchLeageTable } from "../api/fetchData";
+import { fetchLeageTable } from "../api/fetchData";
 import { leagues } from "../components/leaguesObject";
 import LeagueIntro from "../components/leagueIntro";
 
 export function CurrentTable () {
 
-    // const [standings, setStandings] = useState([]);
-    // const [league, setLeague] = useState(leagues[0].id)
+    const [standings, setStandings] = useState([]);
+    const [league, setLeague] = useState(leagues[0].id)
 
-    // const fetchData = async () => {
-    //     const result = await fetchLeageTable(league);
-    //     setStandings(result)
-    // }
+    const fetchData = () => {
+        fetchLeageTable(league).then((result) => setStandings(result));
+    }
 
-    // useEffect(() => {
-    //     fetchData();
-    // }, [league]);
+    useEffect(() => {
+        fetchData();
+    }, [league]);
 
    
-    // function changeLeague(e) {
-    //     setLeague(e.target.value)
-    //    }
+    function changeLeague(e) {
+        setLeague(e.target.value)
+       }
 
+    if (standings === undefined) {
+        console.log("standing is not defined")
+    }
     return (
         <div className="bg-base-100">
             <h1 className="font-semibold">League Table</h1>
             <div>
                 <select 
-                    // onChange={changeLeague}
+                    onChange={changeLeague}
                     className="select select-bordered w-full max-w-xs">
                     <option value="" disabled selected>Choose League</option>
                     {leagues.map((input) => (
-                        <option value={input.id}>{input.title}</option>
+                        <option key={input.id} value={input.id}>{input.title}</option>
                     ))}
                 </select>
             </div>
@@ -62,7 +64,7 @@ export function CurrentTable () {
                         {standings.response[0].league.standings[0].map((item, i) => {
                             return (
                                 <tr key={i} className="border-y-2 px-1 hover:bg-neutral-100">
-                                    <td classname="px-1">{item.rank}</td>
+                                    <td className="px-1">{item.rank}</td>
                                     <td><img src={item.team.logo} alt={item.team.logo} height={25} width={25} /></td>
                                     <td>{item.team.name}</td>
                                     <td className="hidden md:table-cell">{item.all.win}</td>

@@ -2,20 +2,19 @@ import { useEffect, useState } from 'react';
 import { data } from '../api/dummy-data';
 import { Link } from 'react-router-dom';
 import MatchList from '../components/matchList';
-// import { fetchLiveFixtures } from '../api/fetchData';
+import { fetchLiveFixtures } from '../api/fetchData';
 
 export function LiveScores () {
 
-  // const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
 
-  //   const fetchData = async () => {
-  //     const result = await fetchLiveFixtures();
-  //     setData(result)
-  //   }
+    const fetchData = () => {
+      fetchLiveFixtures().then((result) => setData(result));
+    }
     
-  //   useEffect(() => {
-  //     fetchData();
-  //   }, []);
+    useEffect(() => {
+      fetchData();
+    }, []);
 
     return (
       <div className="content bg-base-100">

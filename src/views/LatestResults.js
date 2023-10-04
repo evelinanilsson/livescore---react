@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-// import { fetchResults } from "../api/fetchData"
+import { fetchResults } from "../api/fetchData"
 import { results } from "../api/dummy-data-results";
 import { Link } from "react-router-dom";
 import MatchList from "../components/matchList";
@@ -9,34 +9,33 @@ import { leagues } from "../components/leaguesObject";
 
 export function LatestResults ({currentDate, previousDate}) {
 
-    // const [league, setLeague] = useState(leagues[0].id)
-    // const [results, setResults] = useState([])
+    const [league, setLeague] = useState(leagues[0].id)
+    const [results, setResults] = useState([])
     
 
-    // const fetchData = async () => {
-    //     const result = await fetchResults(currentDate, previousDate, league);
-    //     setResults(result)
-    // }
+    const fetchData = () => {
+        fetchResults(currentDate, previousDate, league).then((result) =>  setResults(result));
+    }
 
-    // useEffect(() => {
-    //     fetchData();
-    // },[league])
+    useEffect(() => {
+        fetchData();
+    },[league])
   
 
-    // function changeLeague(e) {
-    //   setLeague(e.target.value)
-    //  }
+    function changeLeague(e) {
+      setLeague(e.target.value)
+     }
    
     return (
       <div className="content bg-base-100"> 
         <h1 className="font-semibold">Latest Results</h1>
         <div>
           <select  
-              // onChange={changeLeague}
+              onChange={changeLeague}
               className="select select-bordered w-full max-w-xs">
               <option value="" disabled selected>Choose League</option>
               {leagues.map((input) => (
-                  <option value={input.id}>{input.title}</option>
+                  <option key={input.id} value={input.id}>{input.title}</option>
               ))}
           </select>
         </div>
