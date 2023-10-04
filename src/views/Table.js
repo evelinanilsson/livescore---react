@@ -22,9 +22,6 @@ export function CurrentTable () {
         setLeague(e.target.value)
        }
 
-    if (standings === undefined) {
-        console.log("standing is not defined")
-    }
     return (
         <div className="bg-base-100">
             <h1 className="font-semibold">League Table</h1>
