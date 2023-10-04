@@ -1,12 +1,9 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-
 const MatchList = (props) => {
     const fixture = props.fixture;
     
     return (
         <>
-            <div className="">
+            <div>
                 {fixture.response.length === 0 ? (
                     <div>No Live Matches right now...</div>
                 ) : (
@@ -29,7 +26,7 @@ const MatchList = (props) => {
                     
                         {fixture.response.map((item, i) => (
                         <div key={i} className="grid grid-cols-8 md:grid-cols-12 border-y-2 border-inherit items-center pt-0.5 hover:bg-neutral-100">
-                            <div className="">
+                            <div>
                                 <p>{item.fixture.date.slice(5,10)}</p>
                                 <p>{item.fixture.date.slice(11,16)}</p>
                             </div>

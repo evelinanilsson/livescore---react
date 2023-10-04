@@ -27,7 +27,7 @@ export function ComingFixtures ({currentDate, comingDate}) {
         <div className="content bg-base-100 m-1.5">
             <h1 className="font-semibold ">Coming Fixtures</h1>
             
-            <div className="">
+            <div>
                 <select 
                     onChange={changeLeague}
                     className="select select-bordered w-full max-w-xs">
